@@ -11,7 +11,7 @@
 <body>
 <div class="column">
     <h2 class="title">Solicitar Cotización</h2>
-    <?php echo form_open('home/insert'); ?>
+    <?php echo form_open('home/insert', ['id' => 'quote_form']); ?>
     <div class="field">
         <label class="label">Nombre</label>
         <div class="control">
@@ -39,22 +39,21 @@
     </div>
     <div class="field is-grouped">
         <div class="control">
-            <button class="button is-link">Solicitar Cotización</button>
+            <input type="submit" name="get_quote" value="Solicitar Cotización">
         </div>
     </div>
     <?php echo form_close(); ?>
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
 
 </body>
 </html>
