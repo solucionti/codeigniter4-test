@@ -1,0 +1,38 @@
+body {
+    color: #ffffff;
+    background-color: #000000;
+    font-size: 20px;
+}
+.form-result ul{
+    color: #000000;
+
+}
+
+header {
+    background-color: #ffffff;
+}
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+
+}
+
+.container.content {
+    padding: 50px;
+}
+
+div.field {
+    padding: 10px;
+}
+.btn-primary{
+    background-color: #ffffff;
+    color: #1d1e1e;
+    border-color: transparent;
+
+}
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #1d1e1e;
+    border-color: transparent;
+}

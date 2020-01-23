@@ -73,6 +73,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/insert', 'Home::insert');
+$routes->get('/admin', 'AdminController::index');
+$routes->post('/admin/login', 'AdminController::login');
+
+$routes->get('/admin/quotes', 'AdminController::quotes');
 
 /**
  * --------------------------------------------------------------------

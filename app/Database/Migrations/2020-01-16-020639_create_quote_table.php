@@ -31,6 +31,13 @@ class CreateQuoteTable extends Migration
                 'constraint' => '255',
             ],
             'version_id' => [
+                'type' => 'INT',
+            ],
+            'user_ip' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'user_agent' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -44,6 +51,7 @@ class CreateQuoteTable extends Migration
 
     public function down()
     {
-        //
+        $this->forge->dropTable('quote');
+
     }
 }

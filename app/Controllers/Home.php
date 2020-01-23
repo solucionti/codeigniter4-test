@@ -1,6 +1,8 @@
 <?php namespace App\Controllers;
 
 use App\Models\QuoteModel;
+use App\Models\TaxonomyModel;
+use CodeIgniter\HTTP\Request;
 
 class Home extends BaseController
 {
@@ -8,19 +10,9 @@ class Home extends BaseController
     {
         helper(['url', 'form']);
 
-        $data = [
-            'name' => 'name',
-            'phone' => 'phone',
-            'mail' => 'mail@mail.cl',
-            'version_name' => 'Version name',
-            'version_id' => 'versiona_id',
-        ];
-        $new_quote = new QuoteModel();
-        if ($new_quote->insert($data)) {
-           // echo 'Hola';
-        } else {
-         //   print_r($new_quote->errors());
-        }
+        $models = new TaxonomyModel();
+        //   $taxonomy_model = $models->findAll();
+
 
         $data = [
             'name' => 'Version',
@@ -29,12 +21,51 @@ class Home extends BaseController
             'name' => 'Version',
             'name' => 'Version',
         ];
-        return view('home/form');
+
+        return view('home/form', [
+            'models' => $models->getAllTaxonomiesByIdOptions(1),
+        ]);
     }
 
     public function insert()
     {
-        return view('home/insert_message');
+        $messages = [];
+        $request = \Config\Services::request();
+
+        if (!$this->request->isAJAX()) {
+            $messages = [
+                'type' => 'error'
+            ];
+            return json_encode($messages);
+
+        }
+        $values = $request->getGetPost();
+
+        $data = [
+            'name' => $values['name'],
+            'phone' => $values['phone'],
+            'mail' => $values['mail'],
+            'version_name' => $values['models'],
+            'version_id' => $values['models'],
+        ];
+
+        $new_quote = new QuoteModel();
+        if (!$new_quote->validate($data)) {
+            $messages = [
+                'type' => 'error',
+                'messages' => $new_quote->errors(),
+            ];
+            return json_encode($messages);
+        }
+        $new_quote->insert($data);
+        $messages = [
+            'type' => 'ok',
+            'messages' => '',
+            'data' => $data
+        ];
+        return json_encode($messages, true);
+
+        // return view('home/insert_message');
     }
 
     //--------------------------------------------------------------------

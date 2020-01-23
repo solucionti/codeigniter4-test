@@ -4,15 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class QuoteModel extends Model
+class UserLoginModel extends Model
 {
-    protected $table = 'quote';
+
+    protected $table = 'user';
     protected $primaryKey = 'id';
 
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['name', 'phone', 'mail', 'version_name', 'version_id'];
+    protected $allowedFields = [];
 
     protected $useTimestamps = false;
     protected $createdField = 'created_at';
@@ -27,4 +28,9 @@ class QuoteModel extends Model
     ];
     protected $validationMessages = [];
     protected $skipValidation = false;
+
+    public function userLogin()
+    {
+
+    }
 }

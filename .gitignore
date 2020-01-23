@@ -126,7 +126,7 @@ nb-configuration.xml
 /phpunit*.xml
 writable/
 
-env
+.env
 
 app/Config/App.php
 
