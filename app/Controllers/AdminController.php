@@ -24,6 +24,12 @@ class AdminController extends BaseController
 
     public function quotes()
     {
+        $session = \Config\Services::session();
+
+        if (!$session->get('logged_in')) {
+            return redirect()->route('admin/login');
+
+        }
         $quotes = new QuoteModel();
         $results = $quotes->findAll();
 
